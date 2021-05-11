@@ -1,15 +1,22 @@
-void main() {
-  ContaCorrente conta = ContaCorrente();
+import '../lib/Cliente.dart';
+import '../lib/ContaCorrente.dart';
 
-  conta.titular = 'Helder';
+void main() {
+  ContaCorrente conta = ContaCorrente(145, 0);
+  ContaCorrente conta2 = ContaCorrente(145, 0);
+  Cliente cliente = Cliente('Helder');
+
+  conta.titular = cliente.nome;
   conta.agencia = 123;
   conta.conta = 145;
-  conta.saldo = 10.0;
-}
 
-class ContaCorrente {
-  String titular;
-  int agencia;
-  int conta;
-  double saldo = 0.0;
+  double saldo = conta.obterSaldo();
+
+  print(saldo);
+
+  saldo = conta.saldos;
+
+  print(cliente.gcpf);
+  print(conta2);
+  print(ContaCorrente.totalDeContasCorrentes);
 }
